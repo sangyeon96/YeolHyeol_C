@@ -1,7 +1,19 @@
-/*
-프로그램 사용자로부터 초(second)를 입력받은 후에, 이를 [시, 분, 초]의 형태로 출력하는 프로그램을 작성해보자.
+#include <stdio.h>
 
-실행의 예
-초(second) 입력: 3615
-[h:1, m:0, s:15]
-*/
+int main(void) {
+	int hour = 0, minute = 0, second;
+
+	printf("Input second : ");
+	scanf("%d", &second);
+	if(second/3600 != 0) {
+		hour = second/3600;
+		second = second%3600;
+	}
+	if(second/60 != 0) {
+		minute = second/60;
+		second = second%60;
+	}
+	printf("[h:%d, m:%d, s:%d]\n", hour, minute, second);
+
+	return 0;
+}
