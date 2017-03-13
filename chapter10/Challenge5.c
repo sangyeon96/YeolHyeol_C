@@ -1,7 +1,23 @@
-/*
-10개의 소수(Prime Number)를 출력하는 프로그램을 작성해보자. 참고로 정수 num이 1과 num으로 밖에 나눠지지 않는다면 이는 소수에 해당한다.
-따라서 3은 소수이다. 그러나 4는 소수가 아니다. 1, 2, 4로 나눠지기 때문이다.
+#include <stdio.h>
 
-실행의 예
-2 3 5 7 11 13 17 19 23 29
-*/
+int main(void) {
+	int number;
+	int count = 0;
+
+	for (number = 2; ; number++) {
+		if(count == 10)
+			break;
+		else if(number % 2 == 0 && number != 2)
+			continue;
+		else if(number % 3 == 0 && number != 3)
+			continue;
+		else if(number % 5 == 0 && number != 5)
+			continue;
+		else {
+			printf("%d ", number);
+			count += 1;
+		}
+	}
+
+	return 0;
+}
