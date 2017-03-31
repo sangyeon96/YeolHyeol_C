@@ -10,18 +10,20 @@
 #include <stdio.h>
 
 void calculate_cases(int money, int creambread_price, int shrimpcracker_price, int coke_price) {
-	//새우깡을 최대로 사면 money/shrimp_price해서 5이다.
-	//하지만 그러면 나머지가 0이다.
-	//적어도 하나 이상 구매해야한다.
-	//그러면 새우깡을 최대로 사면 3이다.
-	//근데 이걸 컴퓨터가 어떻게 알 수 있을까..
-}
-
-void choice_react(int choice) {
-	switch(choice) {
-		case 1:
-		case 2:
-		case 3: //case개수를 알수없다.
+	//새우깡이 제일 비싸다는걸 프로그램이 알고있다고 가정하자
+	int count = 0;
+	int shrimpcracker_amount = money/shrimpcracker_price;
+	int creambread_amount = 1;
+	int coke_amount = 1;
+	int i;
+	for(i = shrimpcracker_amount; i >= 1; i--) {
+		if(shrimpcracker_price*shrimpcracker_amount
+			+ creambread_price*creambread_amount
+			+ coke_price*coke_amount == 3500) {
+			count += 1;
+			printf("%d번 : 새우깡 %d개, 크림빵 %d개, 콜라 %d개\n", count, shrimpcracker_amount, creambread_amount, coke_amount);
+		}
+			
 	}
 }
 
@@ -36,7 +38,7 @@ int main(void) {
 	calculate_cases(money, creambread_price, shrimpcracker_price, coke_price);
 	printf("어떻게 구입하시겠습니까? ");
 	scanf("%d", &choice);
-	choice_react(choice);
+	printf("%d번으로 구입 완료하였습니다.\n", choice);
 
 	return 0;
 }
